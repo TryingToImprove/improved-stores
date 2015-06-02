@@ -1,5 +1,6 @@
 export default class StoreEvent {
-    constructor() {
+    constructor(dispatcher) {
+        this.dispatcher = dispatcher;
         this.funcs = [];
     }
 
@@ -7,9 +8,9 @@ export default class StoreEvent {
         this.funcs.push(func);
     }
 
-    dispatch(action) {
-        this.funcs.forEach(func => {
-            func.call(this, action);
-        });
+    dispatch(context, action) {
+        const invoke = (func) => func.call(context, action, this.dispatcher);
+
+        this.funcs.forEach(invoke);
     }
 }

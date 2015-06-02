@@ -1,22 +1,22 @@
 {
   "name": "improved-stores",
-  "version": "1.0.0",
+  "version": "1.0.6",
   "description": "",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
     "start": "webpack-dev-server --config webpack.config.js --content-base ./",
     "examples": "webpack-dev-server --config examples/webpack.config.js --content-base ./examples"
   },
-  "author": "= <=>",
+  "author": "TryingToImprove",
   "license": "ISC",
   "devDependencies": {
     "babel-core": "^4.7.16",
     "babel-loader": "^4.2.0",
-    "flux": "^2.0.1",
+    "react": "^0.13.3",
     "webpack": "^1.7.3",
     "webpack-dev-server": "^1.7.0"
   },
   "dependencies": {
-    "react": "^0.13.1"
+    "flux": "^2.0.3"
   }
 }

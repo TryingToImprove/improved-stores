@@ -22,11 +22,11 @@ export default class Component extends React.Component {
     }
 
     handleSubmit(e) {
+        e.preventDefault();
+
         this.props.onSave(this.state.text);
 
         this.setDefaultState();
-
-        e.preventDefault();
     }
 
     render() {

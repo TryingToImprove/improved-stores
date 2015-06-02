@@ -14,12 +14,12 @@ export default class Store {
         this.setup();
 
         // Dispatch
-        this.dispatchToken = AppDispatcher.register((payload) => {
+        this.dispatcherIndex = AppDispatcher.register((payload) => {
             const { type, data } = payload;
             const eventContainer = this.events[type];
 
             if (typeof(eventContainer) !== "undefined") {
-                let executed = eventContainer.dispatch(this, data);
+                let executed = eventContainer.dispatch(data);
 
                 if (typeof(executed) !== "undefined" && !executed) {
                     return false;
@@ -51,7 +51,7 @@ export default class Store {
             let eventSetting = this.events[eventName];
 
             if (typeof(eventSetting) === "undefined") {
-                eventSetting = this.events[eventName] = new StoreEvent(AppDispatcher);
+                eventSetting = this.events[eventName] = new StoreEvent();
             }
 
             eventSetting.add(eventFunc);;

@@ -1,8 +1,8 @@
 import { Store } from "improved-stores";
 
-let storage = [];
+export default class TodoStore extends Store {
+    static STORAGE = {};
 
-class TodoStore extends Store {
     setup() {
         this.subscribe(this.create, register => {
             register("TODO::CREATE");
@@ -14,19 +14,18 @@ class TodoStore extends Store {
     }
 
     create(action) {
-        storage.push({
+        TodoStore.STORAGE[action.id] = {
             id: action.id,
             text: action.text
-        });
+        };
     }
 
     remove(action) {
-        storage = storage.filter((todo) => (todo.id !== action.id))
+        delete TodoStore.STORAGE[action.id];
     }
 
     findAll() {
-        return storage;
+        return Object.keys(TodoStore.STORAGE)
+                     .map(key => TodoStore.STORAGE[key]);
     }
 }
-
-export default new TodoStore();

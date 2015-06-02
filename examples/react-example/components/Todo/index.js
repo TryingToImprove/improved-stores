@@ -1,7 +1,7 @@
 /** @JSX DOM */
 import React from "react";
 
-import TodoStore from "../../stores/TodoStore";
+import { TodoStore } from "../../stores";
 import TodoActions from "../../actions/TodoActions";
 
 import TodoListComponent from "./TodoListComponent";

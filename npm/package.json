@@ -1,0 +1,18 @@
+{
+  "name": "improved-stores",
+  "version": "1.0.5",
+  "description": "",
+  "main": "src/entry.js",
+  "author": "TryingToImprove",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-core": "^4.7.16",
+    "babel-loader": "^4.2.0",
+    "webpack": "^1.7.3",
+    "webpack-dev-server": "^1.7.0"
+  },
+  "dependencies": {
+    "flux": "^2.0.1",
+    "react": "^0.13.1"
+  }
+}
